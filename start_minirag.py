@@ -26,6 +26,8 @@ def main():
     parser.add_argument("--input-dir", default=os.getenv("MINIRAG_INPUT_DIR", "./data/inputs"), help="Directory containing input documents")
     parser.add_argument("--port", default=os.getenv("MINIRAG_PORT", "9621"), help="Server port")
     parser.add_argument("--host", default=os.getenv("MINIRAG_HOST", "0.0.0.0"), help="Server host")
+    parser.add_argument("--embedding-batch-num", default=os.getenv("EMBEDDING_BATCH_NUM", "32"), help="Batch size for embedding computations")
+    parser.add_argument("--embedding-func-max-async", default=os.getenv("EMBEDDING_FUNC_MAX_ASYNC", "16"), help="Maximum number of concurrent embedding function calls")
 
     args = parser.parse_args()
 
@@ -44,7 +46,9 @@ def main():
         "--llm-binding", args.llm_binding,
         "--host", args.host,
         "--port", args.port,
-        "--max-tokens", "128000"  # Use a large token limit for GPT-4 Turbo
+        "--max-tokens", "128000",  # Use a large token limit for GPT-4 Turbo
+        "--embedding-batch-num", args.embedding_batch_num,
+        "--embedding-func-max-async", args.embedding_func_max_async
     ]
 
     # Set environment variables for models

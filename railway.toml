@@ -18,7 +18,9 @@ envs = [
   { name = "MINIRAG_HOST", value = "0.0.0.0" },
   { name = "MINIRAG_PORT", value = "9721" },
   { name = "MINIRAG_EMBEDDING_BINDING", value = "openai" },
-  { name = "MINIRAG_EMBEDDING_MODEL", value = "text-embedding-3-small" }
+  { name = "MINIRAG_EMBEDDING_MODEL", value = "text-embedding-3-small" },
+  { name = "EMBEDDING_BATCH_NUM", value = "32" },
+  { name = "EMBEDDING_FUNC_MAX_ASYNC", value = "16" }
 ]
 volumeMounts = [
   { local = "data", mountPath = "/app/data" }

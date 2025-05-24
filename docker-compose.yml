@@ -13,6 +13,8 @@ services:
       - MINIRAG_PORT=9721
       - MINIRAG_EMBEDDING_BINDING=openai
       - MINIRAG_EMBEDDING_MODEL=text-embedding-3-small
+      - EMBEDDING_BATCH_NUM=32
+      - EMBEDDING_FUNC_MAX_ASYNC=16
     volumes:
       - ./data:/app/data
     healthcheck:

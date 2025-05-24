@@ -161,6 +161,17 @@ The system operates in five sophisticated phases:
 - **LLM integration**: Markitdown can work with LLMs to provide descriptions for images found in documents
 - **Extensibility**: The plugin system allows for custom document converters if needed
 
+## Performance Optimization
+
+### Batch Embedding
+
+The system uses OpenAI embeddings for document indexing. For better performance, you can configure batch processing with the following environment variables:
+
+- `EMBEDDING_BATCH_NUM`: Controls the batch size for embedding computations (default: 32)
+- `EMBEDDING_FUNC_MAX_ASYNC`: Controls the maximum number of concurrent embedding function calls (default: 16)
+
+Increasing these values can improve performance when processing large documents, but may require more memory.
+
 ### MiniRAG (LightRAG)
 
 [MiniRAG](https://github.com/HKUDS/minirag) (distributed as LightRAG) is a lightweight, efficient Retrieval Augmented Generation system designed for simplicity and performance, based on the research paper ["MiniRAG: Towards Extremely Simple Retrieval-Augmented Generation"](https://arxiv.org/abs/2501.06713). We chose MiniRAG because:
